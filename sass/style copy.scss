@@ -1,0 +1,228 @@
+@import "compass/css3";
+@import "functions";
+@import "normalize";
+@import "variables";
+@import "extendables";
+@import "mixins";
+@import "responsive-js";
+
+/* General rules
+=================================================================*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+     @include box-sizing(border-box);
+}
+
+html {
+    /* Enable font-size zoom for old ies */
+    font-size: 100%;
+}
+
+body {
+    font-family: $w-body-font;
+    font-size: calc-em($w-body-size,$w-base-size);
+    line-height: 1.5;
+    background: #fff;
+    color: #2c2c2c;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+#container {
+    /* Fix for IOS rotation bug */
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: $w-link-color;
+    text-decoration: underline;
+
+    &:active {
+    }
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    clear: both;
+}
+
+.holder {
+    width: 100%;
+    padding: 0;
+    clear: both;
+    position: relative;
+}
+
+/* Content
+=================================================================*/
+h1 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 0;
+
+    a {
+        text-decoration: none;
+
+        &:hover, &:focus {
+        }
+    }
+}
+
+/* Footer
+=================================================================*/
+footer {
+    background: #ccc;
+
+    .holder {
+        padding: 20px 10px;
+    }
+}
+
+/* Menu
+=================================================================*/
+#menu {
+    padding: 10px;
+    margin: 0;
+    list-style-type: none;
+    @include inline-block();
+    display: none;
+    
+    li {
+        @include inline-block();
+        
+        a {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 12px;
+            margin: 0 10px;
+            text-align: center;
+            font-size: 12px;
+            z-index: 100;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center center;
+            text-decoration: none;
+            color: #fff;
+            @include background-image(linear-gradient(#F46E24, #A43D04));
+            @include border-radius(32px);
+            @include box-shadow($default-box-shadow);
+            @include text-shadow($default-box-shadow);
+        }
+    }
+}
+
+/* Timetable
+=================================================================*/
+#venues {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    float: left;
+}
+
+#timetable {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    
+    h1 {
+        height: 20px;
+        font-size: 14px;
+        background: rgba(0,0,0,.05);
+        padding: 0 10px;
+        background-repeat: repeat-x;
+        background-position: center center;
+        background-size: auto 100%;
+        text-indent: -9000px;
+        @include opacity(.15);
+    }
+    
+    #timetable-scroller {
+        width: $w-step-width * 57;
+        float: left;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+    
+    .step {
+        width: $w-step-width;
+        height: 100%;
+        float: left;
+        border-left: 1px solid #eee;
+        position: relative;
+        
+        .label {
+            width: $w-step-width;
+            position: absolute;
+            left: -($w-step-width / 2);
+            top: 0;
+            display: block;
+            text-align: center;
+            background: #fff;
+            color: #bbb;
+            font-size: 11px;
+        }
+    }
+    
+    .hour {
+        border-left: 1px solid #ddd;
+    }
+    
+    #venue-holder {
+        width: $w-step-width * 56;
+        position: relative;
+        z-index: 100;
+        padding-top: 40px;
+    }
+    
+    .venue {
+        width: 100%;
+        height: 70px;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        
+        .single-event {
+            height: 40px;
+            padding: 5px 0;
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            text-decoration: none;
+            //background: rgba(0,0,0,.75);
+            @include background-image(linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)));
+            font-size: 10px;
+            color: #fff;
+            @include transition-property(all);
+            @include transition-duration(0.4s);
+            @include transition-timing-function(ease-in-out);
+            @include border-radius();
+            @include box-shadow(rgba(0,0,0,.25) 0 1px 1px);
+            
+            &:hover, &:focus {
+                //background: rgba(0,0,0,1);
+                @include background-image(linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)));
+                @include box-shadow(rgba(0,0,0,.5) 0 1px 1px);
+            }
+        }
+    }
+}

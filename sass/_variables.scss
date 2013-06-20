@@ -1,0 +1,26 @@
+/* Font info */
+$w-base-size: 16px;
+$w-body-size: 14px;
+$w-body-font: Arial, Verdana, sans-serif;
+$w-sec-font: Georgia, "Times new roman", serif;
+
+
+/* The grid */
+$w-max-width: 1284px;
+$w-nr-of-columns: 8;
+$w-gutter: 20px;
+$w-step-width: 40px;
+
+/* Colors */
+$w-link-color: #0000ee;
+
+
+/* Defaults */
+$default-border-radius: 3px;
+$default-box-shadow: (rgba(0,0,0,.25) 0 1px 1px);
+
+
+/* Responsive breakpoints */
+$break-skinny: 30.000em; /* 480px */
+$break-medium: 48.000em; /* 768px */
+$break-desktop: 62.000em; /* 992px */

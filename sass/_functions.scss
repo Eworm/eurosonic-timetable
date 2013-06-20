@@ -1,0 +1,4 @@
+/* Function to calculate em's */
+@function calc-em($target-px, $context: $w-body-size) {
+    @return ($target-px / $context) * 1em;
+}

@@ -1,0 +1,23 @@
+%mobiletoggle {
+    width: 40px;
+    top: 10px;
+    visibility: visible;
+    text-align: center;
+    color: #ddd;
+    font-size: 13px;
+    overflow: visible;
+    position: absolute;
+    z-index: 100;
+    display: block;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-decoration: none;
+    @include border-radius(32px);
+    @include box-shadow($default-box-shadow);
+    @include text-shadow($default-box-shadow);
+}
+
+%mobiletoggled {
+    @include box-shadow(inset rgba(0,0,0,.8) 0 1px 5px);
+}
